@@ -1,3 +1,8 @@
+<?php
+require_once "assets/php/database.php";
+
+?>
+
 <!DOCTYPE HTML>
 <!--
 	Phantom by HTML5 UP

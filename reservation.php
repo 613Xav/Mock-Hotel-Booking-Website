@@ -38,9 +38,9 @@
                             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                             // Fetch hotels from the database
-                            $query = $db->query("SELECT hotel_id, name FROM hotel");
+                            $query = $db->query("SELECT hotel.hotel_id, chainehoteliere.nom AS hotel_name FROM hotel JOIN chainehoteliere ON hotel.chain_id = chainehoteliere.chain_id");
                             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<option value='" . $row['hotel_id'] . "'>" . $row['name'] . "</option>";
+                                echo "<option value='" . $row['hotel_id'] . "'>" . $row['hotel_name'] . "</option>";
                             }
                         } catch (PDOException $e) {
                             echo "<option value=''>Database error: " . $e->getMessage() . "</option>";

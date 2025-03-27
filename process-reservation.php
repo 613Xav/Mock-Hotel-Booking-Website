@@ -31,8 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $date_created = date('Y-m-d H:i:s');
 
         // Insert reservation into the reservation table
-        $stmt = $db->prepare("INSERT INTO reservation (client_id, room_id, starting_date, finishing_date, date_created, prix) VALUES (?, ?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$client_id, $room_id, $checkin, $checkout, $date_created, $prix]);
+        $stmt = $db->prepare("INSERT INTO reservation (room_id, starting_date, finishing_date, date_created, prix) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute([$room_id, $checkin, $checkout, $date_created, $prix]);
 
         echo "Reservation successful!";
     } catch (PDOException $e) {

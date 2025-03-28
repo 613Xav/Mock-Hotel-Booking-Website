@@ -37,12 +37,19 @@ form {
             <section>
 
                 <!-- Reservation Form -->
-                <form action="process-reservation.php" method="POST">
+                <form action="assets/php/process-reservation.php" method="POST">
                     <label for="name">Full Name:</label>
                     <input type="text" id="name" name="name" required>
 
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
+
+                    <label for="client_address">Address:</label>
+                    <input type="text" id="client_address" name="client_address" required>
+
+                    <label for="nas">SIN (NAS):</label>
+                    <input type="text" id="nas" name="nas" required>
+
 
                     <label for="phone">Phone Number:</label>
                     <input type="tel" id="phone" name="phone" required>
@@ -103,7 +110,7 @@ form {
             var chainId = this.value;
             if (chainId) {
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET', 'get-addresses.php?chain_id=' + chainId, true);
+                xhr.open('GET', 'assets/php/get-addresses.php?chain_id=' + chainId, true);
                 xhr.onload = function () {
                     if (xhr.status === 200) {
                         document.getElementById('address').innerHTML = xhr.responseText;
@@ -122,7 +129,7 @@ form {
             var hotelId = this.value;
             if (hotelId) {
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET', 'get-rooms.php?hotel_id=' + hotelId, true);
+                xhr.open('GET', 'assets/php/get-rooms.php?hotel_id=' + hotelId, true);
                 xhr.onload = function () {
                     if (xhr.status === 200) {
                         var response = JSON.parse(xhr.responseText);

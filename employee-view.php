@@ -57,7 +57,7 @@ require_once "assets/php/database.php";
 						<div class="inner">
 							<header>
 								<h1>E-Hotels employee view<br />
-								Client? Here is the client view <a href="index.php">HTML5 UP</a>.</h1>
+								Client? Here is the <a href="index.php">client View</a>.</h1>
 								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
 							</header>
 							<section class="tiles">
@@ -76,10 +76,10 @@ require_once "assets/php/database.php";
 									<span class="image">
 										<img src="images/pic02.jpg" alt="" />
 									</span>
-									<a href="generic.html">
-										<h2>Lorem</h2>
+									<a href="see-rooms.php">
+										<h2>See rooms</h2>
 										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+											<p>View any room</p>
 										</div>
 									</a>
 								</article>

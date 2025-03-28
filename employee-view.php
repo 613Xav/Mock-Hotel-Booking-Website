@@ -65,10 +65,10 @@ require_once "assets/php/database.php";
 									<span class="image">
 										<img src="images/pic01.jpg" alt="" />
 									</span>
-									<a href="generic.html">
-										<h2>Magna</h2>
+									<a href="reservation.php">
+										<h2>Make a reservation</h2>
 										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+											<p>Book a room for a client</p>
 										</div>
 									</a>
 								</article>
@@ -87,10 +87,10 @@ require_once "assets/php/database.php";
 									<span class="image">
 										<img src="images/pic03.jpg" alt="" />
 									</span>
-									<a href="generic.html">
-										<h2>Feugiat</h2>
+									<a href="reservation-to-rent.php">
+										<h2>Reservations to rent</h2>
 										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+											<p>Turn a reservation into a rent for a client</p>
 										</div>
 									</a>
 								</article>

@@ -47,8 +47,8 @@ form {
                     <label for="phone">Phone Number:</label>
                     <input type="tel" id="phone" name="phone" required>
 
-                    <label for="hotel">Select Hotel:</label>
-                    <select id="hotel" name="hotel" required>
+                    <label for="chain">Select Hotel:</label>
+                    <select id="chain" name="chain" required>
                         <option value="">Choose a hotel</option>
                         <?php
                         // Connect to database using PDO
@@ -57,9 +57,9 @@ form {
                             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
                             // Fetch hotels from the database
-                            $query = $db->query("SELECT hotel.hotel_id, chainehoteliere.nom AS hotel_name FROM hotel JOIN chainehoteliere ON hotel.chain_id = chainehoteliere.chain_id");
+                            $query = $db->query("SELECT DISTINCT chain_id, nom FROM chainehoteliere");
                             while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-                                echo "<option value='" . $row['hotel_id'] . "'>" . $row['hotel_name'] . "</option>";
+                                echo "<option value='" . $row['chain_id'] . "'>" . $row['nom'] . "</option>";
                             }
                         } catch (PDOException $e) {
                             echo "<option value=''>Database error: " . $e->getMessage() . "</option>";
@@ -67,8 +67,10 @@ form {
                         ?>
                     </select>
 
-                    <label for="address">Hotel Address:</label>
-                    <input type="text" id="address" name="address" readonly>
+                    <label for="address">Select Hotel Address:</label>
+                    <select id="address" name="address" required>
+                        <option value="">Choose an address</option>
+                    </select>
 
 
                     <label for="room">Select Room:</label>
@@ -93,9 +95,30 @@ form {
         </footer>
     </div>
 
-    <!-- AJAX to dynamically load rooms based on selected hotel -->
+    <!-- AJAX to dynamically load rooms and addresses based on selected hotel -->
     <script>
-        document.getElementById('hotel').addEventListener('change', function () {
+
+        // Load addresses when chain is selected
+        document.getElementById('chain').addEventListener('change', function () {
+            var chainId = this.value;
+            if (chainId) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('GET', 'get-addresses.php?chain_id=' + chainId, true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        document.getElementById('address').innerHTML = xhr.responseText;
+                        document.getElementById('room').innerHTML = '<option value="">Choose a room</option>';
+                    }
+                };
+                xhr.send();
+            } else {
+                document.getElementById('address').innerHTML = '<option value="">Choose an address</option>';
+                document.getElementById('room').innerHTML = '<option value="">Choose a room</option>';
+            }
+        });
+
+        //Load rooms when address is selected
+        document.getElementById('address').addEventListener('change', function () {
             var hotelId = this.value;
             if (hotelId) {
                 var xhr = new XMLHttpRequest();
@@ -104,13 +127,11 @@ form {
                     if (xhr.status === 200) {
                         var response = JSON.parse(xhr.responseText);
                         document.getElementById('room').innerHTML = response.rooms;
-                        document.getElementById('address').value = response.address; // Set the address dynamically
                     }
                 };
                 xhr.send();
             } else {
                 document.getElementById('room').innerHTML = '<option value="">Choose a room</option>';
-                document.getElementById('address').value = ''; // Clear the address field
             }
         });
     </script>

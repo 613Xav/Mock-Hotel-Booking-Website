@@ -5,6 +5,26 @@
     <link rel="stylesheet" href="assets/css/main.css"> <!-- Correct path based on your template -->
     <link rel="stylesheet" href="assets/css/noscript.css">
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
+    <style>
+        /* Add this to center the wrapper */
+#wrapper {
+    width: 80%; /* Or any width percentage you prefer */
+    max-width: 1200px; /* Maximum width for large screens */
+    margin: 0 auto; /* This centers the content */
+    padding: 20px; /* Optional padding to add some space */
+}
+
+/* Optional: Center the header */
+#header {
+    text-align: center;
+}
+
+/* Optional: Center the form */
+form {
+    margin: 0 auto;
+    width: 100%; /* Or a specific width like 500px */
+}
+    </style>
 </head>
 <body>
 
@@ -15,10 +35,9 @@
 
         <div id="main">
             <section>
-                <h2>Make a Reservation</h2>
 
                 <!-- Reservation Form -->
-                <form action="assets/php/process-reservation.php" method="POST">
+                <form action="process-reservation.php" method="POST">
                     <label for="name">Full Name:</label>
                     <input type="text" id="name" name="name" required>
 
@@ -48,6 +67,10 @@
                         ?>
                     </select>
 
+                    <label for="address">Hotel Address:</label>
+                    <input type="text" id="address" name="address" readonly>
+
+
                     <label for="room">Select Room:</label>
                     <select id="room" name="room" required>
                         <option value="">Choose a room</option>
@@ -58,8 +81,9 @@
 
                     <label for="checkout">Check-out Date:</label>
                     <input type="date" id="checkout" name="checkout" required>
-
-                    <button type="submit">Confirm Reservation</button>
+                    <br>
+                    <br>
+                    <button type="submit" style="display: block; margin: 0 auto; text-align: center;">Confirm Reservation</button>
                 </form>
             </section>
         </div>
@@ -75,15 +99,18 @@
             var hotelId = this.value;
             if (hotelId) {
                 var xhr = new XMLHttpRequest();
-                xhr.open('GET', 'assets/php/get-rooms.php?hotel_id=' + hotelId, true);
+                xhr.open('GET', 'get-rooms.php?hotel_id=' + hotelId, true);
                 xhr.onload = function () {
                     if (xhr.status === 200) {
-                        document.getElementById('room').innerHTML = xhr.responseText;
+                        var response = JSON.parse(xhr.responseText);
+                        document.getElementById('room').innerHTML = response.rooms;
+                        document.getElementById('address').value = response.address; // Set the address dynamically
                     }
                 };
                 xhr.send();
             } else {
                 document.getElementById('room').innerHTML = '<option value="">Choose a room</option>';
+                document.getElementById('address').value = ''; // Clear the address field
             }
         });
     </script>

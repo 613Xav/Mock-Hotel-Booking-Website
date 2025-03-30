@@ -98,10 +98,10 @@ require_once "assets/php/database.php";
 									<span class="image">
 										<img src="images/pic04.jpg" alt="" />
 									</span>
-									<a href="generic.html">
-										<h2>Tempus</h2>
+									<a href="admin-page.php">
+										<h2> Admin page</h2>
 										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+											<p>Add/modify/delete clients, employees, rooms and hotels .</p>
 										</div>
 									</a>
 								</article>

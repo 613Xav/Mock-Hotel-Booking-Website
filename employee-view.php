@@ -58,7 +58,6 @@ require_once "assets/php/database.php";
 							<header>
 								<h1>You are currently on the E-Hotels employee view<br />
 								Click here for the <a href="index.php">client View</a>.</h1>
-								<p>Etiam quis viverra lorem, in semper lorem. Sed nisl arcu euismod sit amet nisi euismod sed cursus arcu elementum ipsum arcu vivamus quis venenatis orci lorem ipsum et magna feugiat veroeros aliquam. Lorem ipsum dolor sit amet nullam dolore.</p>
 							</header>
 							<section class="tiles">
 								<article class="style1">

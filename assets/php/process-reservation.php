@@ -43,8 +43,11 @@ try {
         $stmt = $db->prepare("INSERT INTO Reservation (client_id, room_id, starting_date, finishing_date, prix) VALUES (?, ?, ?, ?, ?)");
         $stmt->execute([$client_id, $room_id, $checkin, $checkout, $prix]);
 
-        echo "<script>alert('Reservation successfully made!'); window.location.href='reservation.php';</script>";
-    } else {
+        echo "<script>
+        alert('Reservation successfully made!');
+        window.location.href = '/reservation.php';
+    </script>";
+        } else {
         echo "<script>alert('Error: Room not found.'); window.location.href='reservation.php';</script>";
     }
 

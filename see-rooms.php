@@ -114,7 +114,7 @@ $hotelChainFiller = getHotelChains();
 				<br>
 
 				<!-- Filters -->
-				<select id="chainFilter" style="width: 30%;">
+				<select id="chainFilter" style="width: 3 0%;">
 					<option value="">Select Chains</option>
 					<!-- Options loaded dynamically from the database -->
 					<?php
@@ -131,6 +131,13 @@ $hotelChainFiller = getHotelChains();
 					<!-- Options will be updated based on chain selection -->
 
 				</select>
+
+				<label for="minPrice">Min Price:</label>
+				<input type="text" id="minPrice" placeholder="Enter minimum price">
+				<label for="maxPrice">Max Price:</label>
+				<input type="text" id="maxPrice" placeholder="Enter maximum price">
+				<button id="priceFilterBtn">Filter by Price</button>
+
 
 
 				<!-- Table Container -->
@@ -263,6 +270,73 @@ $hotelChainFiller = getHotelChains();
 			});
 		});
 	</script>
+	<script>
+		$(document).ready(function() {
+
+			// When the hotel filter changes, you may also want to load rooms
+			$('#hotelFilter').on('change', function() {
+				loadRooms();
+			});
+
+			// When the price filter button is clicked, load rooms using the new price filter
+			$('#priceFilterBtn').on('click', function() {
+				loadRooms();
+			});
+
+			function loadRooms() {
+				var hotelId = $('#hotelFilter').val();
+				var minPrice = $('#minPrice').val();
+				var maxPrice = $('#maxPrice').val();
+
+				// Clear the DataTable or table body if needed
+				var table = $('#roomsTable').DataTable();
+				table.clear();
+
+				$.ajax({
+					url: 'assets/php/fill-room-selection.php',
+					type: 'POST',
+					data: {
+						hotelId: hotelId,
+						minPrice: minPrice,
+						maxPrice: maxPrice
+					},
+					success: function(response) {
+						var rooms;
+						try {
+							rooms = typeof response === 'object' ? response : JSON.parse(response);
+						} catch (e) {
+							console.error('Error parsing JSON:', e);
+							return;
+						}
+
+						// Loop through the rooms and add rows to the DataTable
+						rooms.forEach(function(room) {
+
+							// Convert 0/1 to "oui" or "non"
+							var vueMer = room.vue_mer == 1 ? 'oui' : 'non';
+							var vueMontagne = room.vue_montagne == 1 ? 'oui' : 'non';
+							var extensible = room.extensible == 1 ? 'oui' : 'non';
+
+							table.row.add([
+								room.room_id,
+								room.prix,
+								room.capacite,
+								vueMer,
+								vueMontagne,
+								extensible
+							]);
+						});
+
+						table.draw();
+					},
+					error: function(xhr, status, error) {
+						console.log('Error fetching rooms:', error);
+					}
+				});
+			}
+		});
+	</script>
+
 
 </body>
 

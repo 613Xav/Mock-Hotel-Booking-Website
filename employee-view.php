@@ -1,6 +1,5 @@
 <?php
 require_once "assets/php/database.php";
-
 ?>
 
 <!DOCTYPE HTML>
@@ -11,7 +10,7 @@ require_once "assets/php/database.php";
 -->
 <html>
 	<head>
-		<title>Phantom by HTML5 UP</title>
+		<title>E-Hotels - Employee View</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -27,7 +26,7 @@ require_once "assets/php/database.php";
 
 							<!-- Logo -->
 								<a href="index.html" class="logo">
-									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Phantom</span>
+									<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">E-Hotels</span>
 								</a>
 
 							<!-- Nav -->
@@ -45,10 +44,7 @@ require_once "assets/php/database.php";
 						<h2>Menu</h2>
 						<ul>
 							<li><a href="index.html">Home</a></li>
-							<li><a href="generic.html">Ipsum veroeros</a></li>
-							<li><a href="generic.html">Tempus etiam</a></li>
-							<li><a href="generic.html">Consequat dolor</a></li>
-							<li><a href="elements.html">Elements</a></li>
+							<li><a href="admin-page.php">Admin Panel</a></li>
 						</ul>
 					</nav>
 
@@ -56,8 +52,8 @@ require_once "assets/php/database.php";
 					<div id="main">
 						<div class="inner">
 							<header>
-								<h1>You are currently on the E-Hotels employee view<br />
-								Click here for the <a href="index.php">client View</a>.</h1>
+								<h1>E-Hotels Employee Dashboard<br />
+								<a href="index.php">Switch to Client View</a></h1>
 							</header>
 							<section class="tiles">
 								<article class="style1">
@@ -98,97 +94,9 @@ require_once "assets/php/database.php";
 										<img src="images/pic04.jpg" alt="" />
 									</span>
 									<a href="admin-page.php">
-										<h2> Admin page</h2>
+										<h2>Admin page</h2>
 										<div class="content">
-											<p>Add/modify/delete clients, employees, rooms and hotels .</p>
-										</div>
-									</a>
-								</article>
-								<article class="style5">
-									<span class="image">
-										<img src="images/pic05.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Aliquam</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style6">
-									<span class="image">
-										<img src="images/pic06.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Veroeros</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style2">
-									<span class="image">
-										<img src="images/pic07.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Ipsum</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style3">
-									<span class="image">
-										<img src="images/pic08.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Dolor</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style1">
-									<span class="image">
-										<img src="images/pic09.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Nullam</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style5">
-									<span class="image">
-										<img src="images/pic10.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Ultricies</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style6">
-									<span class="image">
-										<img src="images/pic11.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Dictum</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
-										</div>
-									</a>
-								</article>
-								<article class="style4">
-									<span class="image">
-										<img src="images/pic12.jpg" alt="" />
-									</span>
-									<a href="generic.html">
-										<h2>Pretium</h2>
-										<div class="content">
-											<p>Sed nisl arcu euismod sit amet nisi lorem etiam dolor veroeros et feugiat.</p>
+											<p>Add/modify/delete clients, employees, rooms and hotels</p>
 										</div>
 									</a>
 								</article>
@@ -200,7 +108,7 @@ require_once "assets/php/database.php";
 					<footer id="footer">
 						<div class="inner">
 							<section>
-								<h2>Get in touch</h2>
+								<h2>Contact Support</h2>
 								<form method="post" action="#">
 									<div class="fields">
 										<div class="field half">
@@ -218,21 +126,8 @@ require_once "assets/php/database.php";
 									</ul>
 								</form>
 							</section>
-							<section>
-								<h2>Follow</h2>
-								<ul class="icons">
-									<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-dribbble"><span class="label">Dribbble</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
-									<li><a href="#" class="icon brands style2 fa-500px"><span class="label">500px</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
-									<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
-								</ul>
-							</section>
 							<ul class="copyright">
-								<li>&copy; Untitled. All rights reserved</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+								<li>&copy; E-Hotels. All rights reserved</li>
 							</ul>
 						</div>
 					</footer>

@@ -1,2 +1,2 @@
 # 2532website
-Code for the website
+Code for our website for the database course project
